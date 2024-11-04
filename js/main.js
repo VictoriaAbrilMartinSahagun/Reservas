@@ -52,11 +52,9 @@ window.calcularPrecios = function() {
     let resultadosHTML = 
         `<h2>Mensaje: </h2>
         <div class="mensaje-container">
-            <p> Estimado/a: </p>
-            <p> Gracias por su interés en hospedarse en Balcón del Golf, en Sierra de la Ventana. Nos complace informarle que contamos con disponibilidad en las fechas consultadas.
-            A continuación, le detallo las opciones de hospedaje disponibles, junto con el precio total de la estadía y la capacidad máxima de cada cabaña:</p>`;
+            <p> A continuación le indicamos nuestra cotización personalizada:</p>`;
 
-    // Construir el texto para copiar (formato email)
+    // Construir el texto para copiar (formato whatsapp llamado Email :/)
     let textoEmail = 
     `Estimado/a:
 
@@ -84,7 +82,7 @@ window.calcularPrecios = function() {
             | Precio Total: $${precioTotal.toLocaleString()} 
             </p>`;
 
-            // Texto para email
+            // Texto para whatsapp
             textoEmail += `
             ${index + 1}) ${hosp.descripcion}
             Capacidad: ${cantidadPersonas} personas
@@ -96,10 +94,9 @@ window.calcularPrecios = function() {
 
     const mensajeFinal = `
     Si desea proceder con la reserva o necesita más información, no dude en ponerse en contacto con nosotros.
-    Estaremos encantados de asistirlo para asegurar una estadía placentera en nuestro complejo.
+    Estaremos encantados de asistirlo para asegurar una estadía placentera en nuestro complejo.`;
 
-    Saludos cordiales.`;
-
+    // HTML para mostrar
     resultadosHTML += `
         <p>${mensajeFinal}</p>
         </div>
@@ -107,6 +104,7 @@ window.calcularPrecios = function() {
             <span class="button-text">Copiar mensaje</span>
         </button>`;
 
+    //Texto final whatapp
     textoEmail += mensajeFinal;
 
     document.getElementById('results').innerHTML = resultadosHTML;
