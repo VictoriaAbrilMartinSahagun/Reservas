@@ -27,11 +27,12 @@ export const PRECIOS = {
 };
 
 export class Hospedaje {
-    constructor(id, nombre, tipoPrecio, basePersonas, descripcion, link) {
+    constructor(id, nombre, tipoPrecio, basePersonas, maxPersonas, descripcion, link) {
         this.id = id;
         this.nombre = nombre;
         this.tipoPrecio = tipoPrecio;
         this.basePersonas = basePersonas;
+        this.maxPersonas = maxPersonas;
         this.descripcion = descripcion;
         this.link = link;
     }
