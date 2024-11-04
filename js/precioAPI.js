@@ -1,5 +1,5 @@
 export async function getPriceData() {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbw2bOFSKh9Mp3xAdcvTQ8BrjnLLyEs7ik8bcJQHcEtSE7mBUufLY7QqcprhOWjedvf6/exec', 
+    const response = await fetch('https://script.google.com/macros/s/AKfycbw0m6UCrer6VTfS0s_sOGnvntwBL29GYIa9CSJmap87qI7-k1bc3jzU3-PpoBlYJ8TW/exec', 
         {   method: 'GET',
             mode: 'no-cors' // Desactiva CORS
         });
