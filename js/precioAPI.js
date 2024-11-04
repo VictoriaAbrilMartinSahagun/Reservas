@@ -3,7 +3,10 @@ export async function getPriceData() {
         {   method: 'GET',
             mode: 'no-cors' // Desactiva CORS
         });
-    const jsonData = await response.json();
+    if(response != null){
+        const jsonData = await response.json;
     const priceData = jsonData.data;
     return priceData;
+    }
+    
   }
