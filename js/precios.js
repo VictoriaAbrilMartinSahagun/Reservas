@@ -3,7 +3,6 @@ import { getPriceData } from './precioAPI.js';
 // Obtener los datos de precios desde la API
 const priceData = await getPriceData();
 
-
    // Actualizar la clase Hospedaje para utilizar los precios de la API
    export class Hospedaje {
      constructor(id, nombre, tipoPrecio, basePersonas, maxPersonas, descripcion, link) {
