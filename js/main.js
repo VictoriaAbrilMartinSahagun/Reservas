@@ -40,6 +40,9 @@ window.calcularPrecios = function() {
         return;
     }    
 
+    const checkboxFindeLargo = document.getElementById("findeLargo");
+    let findeLargo = checkboxFindeLargo.checked;
+
     if (!fechaInicio || !fechaFin) {
         alert('Por favor seleccione una fecha');
         return;
@@ -69,7 +72,7 @@ window.calcularPrecios = function() {
         if(cantidadPersonas > hosp.maxPersonas){
             alert('El hospedaje: '+hosp.nombre+' no es apto para '+cantidadPersonas+ ' personas.');
         } else {
-            const precioBase = hosp.calcularPrecioEstadia(fechaInicio, fechaFin);
+            const precioBase = hosp.calcularPrecioEstadia(fechaInicio, fechaFin, findeLargo);
             const cargoPersonas = calcularCargoPorPersonas(cantidadPersonas, hosp);
             const precioTotal = precioBase + cargoPersonas;
 

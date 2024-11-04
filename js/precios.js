@@ -15,7 +15,7 @@ const priceData = await getPriceData();
        this.link = link;
      }
 
-     calcularPrecioEstadia(fechaInicio, fechaFin) {
+     calcularPrecioEstadia(fechaInicio, fechaFin, findeLargo) {
        let precioTotal = 0;
        const inicio = new Date(fechaInicio);
        const fin = new Date(fechaFin);
@@ -23,20 +23,28 @@ const priceData = await getPriceData();
 
        while (currentDate <= fin) {
          const dia = currentDate.getDay();
-         if (dia === 5) { // Viernes
-           const nextDate = new Date(currentDate);
-           nextDate.setDate(nextDate.getDate() + 1);
-           if (nextDate <= fin) {
-             precioTotal += parseFloat(priceData[this.tipoPrecio][2]);
-             currentDate.setDate(currentDate.getDate() + 2);
-             continue;
-           }
+         const mes = currentDate.getMonth();
+
+         if (findeLargo) {
+          precioTotal += parseFloat(priceData[mes][this.tipoPrecio][3]);
+         }else{
+            if (dia === 5) { // Viernes
+              const nextDate = new Date(currentDate);
+              nextDate.setDate(nextDate.getDate() + 1);
+              if (nextDate <= fin) { // Si el día que sigue es sábado
+                precioTotal += parseFloat(priceData[mes][this.tipoPrecio][2])*2; // Sumo el precio de finde, es por día.
+                currentDate.setDate(currentDate.getDate() + 2);
+                continue;
+              }
+            }
+  
+            if (dia === 5 || dia === 6) { // Viernes o sábado
+              precioTotal += parseFloat(priceData[mes][this.tipoPrecio][0]); // Sumo precio día.
+            } else {
+              precioTotal += parseFloat(priceData[mes][this.tipoPrecio][1]); // Sumo precio semana.
+            }
          }
-         if (dia === 5 || dia === 6) { // Viernes o sábado
-           precioTotal += parseFloat(priceData[this.tipoPrecio][1]);
-         } else {
-           precioTotal += parseFloat(priceData[this.tipoPrecio][0]);
-         }
+
          currentDate.setDate(currentDate.getDate() + 1);
        }
 
