@@ -1,19 +1,19 @@
 import { Hospedaje } from './precios.js';
 
 const hospedajes = {
-    1: new Hospedaje(1, "Cabañas 5/6", "precio1", 2, 2, "Cabaña para 2 personas", "https://balcondelgolf.com/alojamiento/cab2pax/"),
-    2: new Hospedaje(2, "Cabañas 3/4/7/8/9/10", "precio2", 2, 4, "Cabaña para 2 a 4 personas", "https://balcondelgolf.com/alojamiento/cab2a4pax/"),
-    3: new Hospedaje(3, "Cabañas 22/23/24/25", "precio4", 2, 4, "Cabaña premium para 2 a 4 personas con jacuzzi doble", "https://balcondelgolf.com/hosp-premium-de-2-a-4-pers-con-jacuzzi-doble/"),
-    4: new Hospedaje(4, "Casa 21", "precio2", 2, 4, "Casa para 2 a 4 personas apta mascotas", "https://balcondelgolf.com/alojamiento/cab2a4pax-masc/"),
-    5: new Hospedaje(5, "Casa 20", "precio5", 4, 5, "Casa para 4 a 5 personas apta mascotas", "https://balcondelgolf.com/alojamiento/casa4o5pax-masc/"),
-    6: new Hospedaje(6, "Casa 14", "precio5", 4 , 6, "Casa para 4 a 6 personas apta mascotas", "https://balcondelgolf.com/alojamiento/casa4a6-masc/"),
-    7: new Hospedaje(7, "Casa 1/2", "precio5", 4, 6, "Casa para 4 a 6 personas", "https://balcondelgolf.com/alojamiento/casa4a6/"),
-    8: new Hospedaje(8, "Casa 2", "precio5", 4, 8, "Casa para 4 a 8 personas", "https://balcondelgolf.com/alojamiento/casa67u8pax/"),
-    9: new Hospedaje(9, "Departamento 15", "precio1", 2, 3, "Departamento para 2 a 3 personas", "https://balcondelgolf.com/alojamiento/cab6a8pax/"),
-    10: new Hospedaje(10, "Lodge 19", "precio3", 2, 3, "Lodge para 2 a 3 personas", "https://balcondelgolf.com/alojamiento/lodge2a3pax-2/"),
-    11: new Hospedaje(11, "Lodge 16", "precio3", 2, 4, "Lodge para 2 a 4 personas", "https://balcondelgolf.com/alojamiento/lodge2a4pax/"),
-    12: new Hospedaje(12, "Lodge 17", "precio3", 2, 4, "Lodge para 2 a 4 personas con jacuzzi", "https://balcondelgolf.com/alojamiento/lodge2a3pax/"),
-    13: new Hospedaje(13, "Lodge 18", "precio3", 2, 5, "Lodge para 2 a 5 personas", "https://balcondelgolf.com/alojamiento/lodge2a5pax/")
+    1: new Hospedaje(1, "Cabañas 5/6", 0, 2, 2, "Cabaña para 2 personas", "https://balcondelgolf.com/alojamiento/cab2pax/"),
+    2: new Hospedaje(2, "Cabañas 3/4/7/8/9/10", 1, 2, 4, "Cabaña para 2 a 4 personas", "https://balcondelgolf.com/alojamiento/cab2a4pax/"),
+    3: new Hospedaje(3, "Cabañas 22/23/24/25", 3, 2, 4, "Cabaña premium para 2 a 4 personas con jacuzzi doble", "https://balcondelgolf.com/hosp-premium-de-2-a-4-pers-con-jacuzzi-doble/"),
+    4: new Hospedaje(4, "Casa 21", 1, 2, 4, "Casa para 2 a 4 personas apta mascotas", "https://balcondelgolf.com/alojamiento/cab2a4pax-masc/"),
+    5: new Hospedaje(5, "Casa 20", 4, 4, 5, "Casa para 4 a 5 personas apta mascotas", "https://balcondelgolf.com/alojamiento/casa4o5pax-masc/"),
+    6: new Hospedaje(6, "Casa 14", 4, 4 , 6, "Casa para 4 a 6 personas apta mascotas", "https://balcondelgolf.com/alojamiento/casa4a6-masc/"),
+    7: new Hospedaje(7, "Casa 1/2", 4, 4, 6, "Casa para 4 a 6 personas", "https://balcondelgolf.com/alojamiento/casa4a6/"),
+    8: new Hospedaje(8, "Casa 2", 4, 4, 8, "Casa para 4 a 8 personas", "https://balcondelgolf.com/alojamiento/casa67u8pax/"),
+    9: new Hospedaje(9, "Departamento 15", 0, 2, 3, "Departamento para 2 a 3 personas", "https://balcondelgolf.com/alojamiento/cab6a8pax/"),
+    10: new Hospedaje(10, "Lodge 19", 2, 2, 3, "Lodge para 2 a 3 personas", "https://balcondelgolf.com/alojamiento/lodge2a3pax-2/"),
+    11: new Hospedaje(11, "Lodge 16", 2, 2, 4, "Lodge para 2 a 4 personas", "https://balcondelgolf.com/alojamiento/lodge2a4pax/"),
+    12: new Hospedaje(12, "Lodge 17", 2, 2, 4, "Lodge para 2 a 4 personas con jacuzzi", "https://balcondelgolf.com/alojamiento/lodge2a3pax/"),
+    13: new Hospedaje(13, "Lodge 18", 2, 2, 5, "Lodge para 2 a 5 personas", "https://balcondelgolf.com/alojamiento/lodge2a5pax/")
 };
 
 function calcularCargoPorPersonas(cantidadPersonas, hosp) {
