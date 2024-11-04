@@ -55,12 +55,12 @@ window.calcularPrecios = function() {
 
     // Construir el texto para copiar (formato email)
     let textoEmail = 
-`Estimado/a:
+    `Estimado/a:
 
-Gracias por su interés en hospedarse en Balcón del Golf, en Sierra de la Ventana. Nos complace informarle que contamos con disponibilidad en las fechas consultadas.
+    Gracias por su interés en hospedarse en Balcón del Golf, en Sierra de la Ventana. Nos complace informarle que contamos con disponibilidad en las fechas consultadas.
 
-A continuación, le detallo las opciones de hospedaje disponibles, junto con el precio total de la estadía y la capacidad máxima de cada cabaña:
-`;
+    A continuación, le detallo las opciones de hospedaje disponibles, junto con el precio total de la estadía y la capacidad máxima de cada cabaña:
+    `;
 
     cabañasSeleccionadas.forEach((element, index) => {
         const hospId = element.value;
@@ -75,27 +75,27 @@ A continuación, le detallo las opciones de hospedaje disponibles, junto con el 
 
             // HTML para mostrar
             resultadosHTML += `
-                <p class="hospedaje-item">
-                    <span class="descripcion-link" onclick="window.open('${hosp.link}', '_blank')">${hosp.descripcion}</span>
-                    | Capacidad: ${cantidadPersonas} personas 
-                    | Precio Total: $${precioTotal.toLocaleString()} 
-                </p>`;
+            <p>
+            <a href="${hosp.link}" target="_blank">${hosp.descripcion}</a> 
+            | Capacidad: ${cantidadPersonas} personas 
+            | Precio Total: $${precioTotal.toLocaleString()} 
+            </p>`;
 
             // Texto para email
             textoEmail += `
-${index + 1}) ${hosp.descripcion}
-   Capacidad: ${cantidadPersonas} personas
-   Precio Total: $${precioTotal.toLocaleString()}
-   Más información: ${hosp.link}
-`;
+            ${index + 1}) ${hosp.descripcion}
+            Capacidad: ${cantidadPersonas} personas
+            Precio Total: $${precioTotal.toLocaleString()}
+            Más información: ${hosp.link}
+            `;
         }
     });
 
     const mensajeFinal = `
-Si desea proceder con la reserva o necesita más información, no dude en ponerse en contacto con nosotros.
-Estaremos encantados de asistirlo para asegurar una estadía placentera en nuestro complejo.
+    Si desea proceder con la reserva o necesita más información, no dude en ponerse en contacto con nosotros.
+    Estaremos encantados de asistirlo para asegurar una estadía placentera en nuestro complejo.
 
-Saludos cordiales.`;
+    Saludos cordiales.`;
 
     resultadosHTML += `
         <p>${mensajeFinal}</p>
@@ -131,72 +131,3 @@ window.copiarResultados = async function() {
         alert('No se pudo copiar el texto. Por favor, inténtelo de nuevo.');
     }
 };
-
-/*
-window.calcularPrecios = function() {
-    const cantidadPersonas = parseInt(document.getElementById('peopleCount').value);
-
-    if (cantidadPersonas < 1) {
-        alert('La cantidad de personas debe ser al menos 1');
-        return;
-    }
-
-    const cabañasSeleccionadas = document.querySelectorAll('#listaHosp input:checked');
-    
-    if (cabañasSeleccionadas.length === 0) {
-        alert('Por favor seleccione al menos una cabaña');
-        return;
-    }    
-
-
-    if (!fechaInicio || !fechaFin) {
-        alert('Por favor seleccione una fecha');
-        return;
-    }
-
-    let resultadosHTML = 
-        `<h2>Mensaje: </h2>
-        <p> Estimado/a: </p>
-        <p> Gracias por su interés en hospedarse en Balcón del Golf, en Sierra de la Ventana. Nos complace informarle que contamos con disponibilidad en las fechas consultadas.
-        A continuación, le detallo las opciones de hospedaje disponibles, junto con el precio total de la estadía y la capacidad máxima de cada cabaña:</p>`;
-
-    cabañasSeleccionadas.forEach(element => {
-        const hospId = element.value;
-        const hosp = hospedajes[hospId];
-        
-        if(cantidadPersonas>hosp.maxPersonas){
-            alert('El hospedaje: '+hosp.nombre+' no es apto para '+cantidadPersonas+ ' personas.');
-        } else {
-
-        const precioBase = hosp.calcularPrecioEstadia(fechaInicio, fechaFin);
-        const cargoPersonas = calcularCargoPorPersonas(cantidadPersonas, hosp);
-        const precioTotal = precioBase + cargoPersonas;
-
-        /*
-        Estimado/a:
-        Gracias por su interés en hospedarse en Balcón del Golf, en Sierra de la Ventana. Nos complace informarle que contamos con disponibilidad en las fechas consultadas.
-        A continuación, le detallo las opciones de hospedaje disponibles, junto con el precio total de la estadía y la capacidad máxima de cada cabaña:
-
-        [Nombre o Tipo de Cabaña]: para [Cantidad de Personas] personas tiene un precio de $[Total por la Estancia] total por la estadía.
-
-        Si desea proceder con la reserva o necesita más información, no dude en ponerse en contacto con nosotros. Estaremos encantados de asistirlo para asegurar una estadía placentera en nuestro complejo.
-        */
-/*
-        resultadosHTML += `
-            <p>
-            <a href="${hosp.link}" target="_blank">${hosp.descripcion}</a> 
-            | Capacidad: ${cantidadPersonas} personas 
-            | Precio Total: $${precioTotal.toLocaleString()} 
-            </p>`;
-        
-        }
-    });
-
-    resultadosHTML += 
-        `<p> Si desea proceder con la reserva o necesita más información, no dude en ponerse en contacto con nosotros.
-        Estaremos encantados de asistirlo para asegurar una estadía placentera en nuestro complejo.</p>`
-
-    document.getElementById('results').innerHTML = resultadosHTML;
-};
-
-*/
