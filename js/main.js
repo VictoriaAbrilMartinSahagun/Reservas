@@ -49,10 +49,7 @@ window.calcularPrecios = function() {
     }
 
     // Construir el HTML para mostrar
-    let resultadosHTML = 
-        `<h2>Mensaje: </h2>
-        <div class="mensaje-container">
-            <p> A continuación le indicamos nuestra cotización personalizada:</p>`;
+    let resultadosHTML = ``;
 
     // Construir el texto para copiar (formato whatsapp llamado Email :/)
     let textoEmail = 
@@ -76,15 +73,17 @@ window.calcularPrecios = function() {
 
             // HTML para mostrar
             resultadosHTML += `
+            <div class="mensaje-container" id="mensajeParaCopiar">
             <p>
             <a href="${hosp.link}" target="_blank">${hosp.descripcion}</a> 
             | Capacidad: ${cantidadPersonas} personas 
             | Precio Total: $${precioTotal.toLocaleString()} 
-            </p>`;
+            </p>
+            </div>`;
 
             // Texto para whatsapp
             textoEmail += `
-            ${index + 1}) ${hosp.descripcion}
+            ${index + 1}) ${hosp.descripcion} 
             Capacidad: ${cantidadPersonas} personas
             Precio Total: $${precioTotal.toLocaleString()}
             Más información: ${hosp.link}
@@ -98,11 +97,14 @@ window.calcularPrecios = function() {
 
     // HTML para mostrar
     resultadosHTML += `
-        <p>${mensajeFinal}</p>
-        </div>
-        <button id="copyButton" class="copy-button" onclick="copiarResultados()">
-            <span class="button-text">Copiar mensaje</span>
-        </button>`;
+        <div class="button-container">
+            <button id="copyHTMLButton" class="copy-button" onclick="copiarHTML()">
+                <span class="button-text">Copiar email</span>
+            </button>
+            <button id="copyTextButton" class="copy-button" onclick="copiarResultados()">
+                <span class="button-text">Copiar whatsapp</span>
+            </button>
+        </div>`;
 
     //Texto final whatapp
     textoEmail += mensajeFinal;
@@ -111,24 +113,44 @@ window.calcularPrecios = function() {
     document.getElementById('results').setAttribute('data-text', textoEmail);
 };
 
-// Función para copiar los resultados
+// Función para copiar el texto plano (existente)
 window.copiarResultados = async function() {
     const texto = document.getElementById('results').getAttribute('data-text');
-    const boton = document.getElementById('copyButton');
+    const boton = document.getElementById('copyTextButton');
     
     try {
         await navigator.clipboard.writeText(texto);
-        
-        // Cambiar el texto del botón temporalmente
-        const textoOriginal = boton.innerHTML;
-        boton.innerHTML = '<span class="button-text">¡Copiado!</span>';
-        
-        // Volver al texto original después de 2 segundos
-        setTimeout(() => {
-            boton.innerHTML = textoOriginal;
-        }, 2000);
+        mostrarCopiado(boton);
     } catch (err) {
         console.error('Error al copiar:', err);
         alert('No se pudo copiar el texto. Por favor, inténtelo de nuevo.');
     }
+};
+
+// Nueva función para copiar el HTML formateado
+window.copiarHTML = async function() {
+    const mensajeContainer = document.getElementById('mensajeParaCopiar');
+    const boton = document.getElementById('copyHTMLButton');
+    
+    try {
+        const type = 'text/html';
+        const blob = new Blob([mensajeContainer.innerHTML], { type });
+        const data = [new ClipboardItem({ [type]: blob })];
+        
+        await navigator.clipboard.write(data);
+        mostrarCopiado(boton);
+    } catch (err) {
+        console.error('Error al copiar HTML:', err);
+        alert('No se pudo copiar el texto formateado. Por favor, inténtelo de nuevo.');
+    }
+};
+
+// Función auxiliar para mostrar el mensaje de copiado
+function mostrarCopiado(boton) {
+    const textoOriginal = boton.innerHTML;
+    boton.innerHTML = '<span class="button-text">¡Copiado!</span>';
+    
+    setTimeout(() => {
+        boton.innerHTML = textoOriginal;
+    }, 2000);
 };
