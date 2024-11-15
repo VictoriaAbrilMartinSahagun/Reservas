@@ -49,7 +49,7 @@ window.calcularPrecios = function() {
     }
 
     // Construir el HTML para mostrar
-    let resultadosHTML = ``;
+    let resultadosHTML = `<div class="mensaje-container" id="mensajeParaCopiar">`;
 
     // Construir el texto para copiar (formato whatsapp llamado Email :/)
     let textoEmail = 
@@ -73,13 +73,11 @@ window.calcularPrecios = function() {
 
             // HTML para mostrar
             resultadosHTML += `
-            <div class="mensaje-container" id="mensajeParaCopiar">
             <p>
             <a href="${hosp.link}" target="_blank">${hosp.descripcion}</a> 
             | Capacidad: ${cantidadPersonas} personas 
             | Precio Total: $${precioTotal.toLocaleString()} 
-            </p>
-            </div>`;
+            </p>`;
 
             // Texto para whatsapp
             textoEmail += `
@@ -97,6 +95,7 @@ window.calcularPrecios = function() {
 
     // HTML para mostrar
     resultadosHTML += `
+        </div>
         <div class="button-container">
             <button id="copyHTMLButton" class="copy-button" onclick="copiarHTML()">
                 <span class="button-text">Copiar email</span>
