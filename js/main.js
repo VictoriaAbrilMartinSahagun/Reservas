@@ -90,11 +90,13 @@ window.calcularPrecios = function() {
     });
 
     const mensajeFinal = `
+    Precios en efectivo, consultar precio de lista.
     Si desea proceder con la reserva o necesita más información, no dude en ponerse en contacto con nosotros.
-    Estaremos encantados de asistirlo para asegurar una estadía placentera en nuestro complejo.`;
+    Estaremos encantados de asistirlo para asegurar una estancia placentera en nuestro complejo.`;
 
     // HTML para mostrar
     resultadosHTML += `
+        <p>Precios en efectivo, consultar precio de lista.</p>
         </div>
         <div class="button-container">
             <button id="copyHTMLButton" class="copy-button" onclick="copiarHTML()">
