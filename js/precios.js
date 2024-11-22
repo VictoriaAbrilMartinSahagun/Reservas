@@ -39,9 +39,9 @@ const priceData = await getPriceData();
             }
   
             if (dia === 5 || dia === 6) { // Viernes o sábado
-              precioTotal += parseFloat(priceData[mes][this.tipoPrecio][0]); // Sumo precio día.
+              precioTotal += parseFloat(priceData[mes][this.tipoPrecio][1]); // Sumo precio día.
             } else {
-              precioTotal += parseFloat(priceData[mes][this.tipoPrecio][1]); // Sumo precio semana.
+              precioTotal += parseFloat(priceData[mes][this.tipoPrecio][0]); // Sumo precio semana.
             }
          }
 
