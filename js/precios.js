@@ -21,7 +21,7 @@ const priceData = await getPriceData();
        const fin = new Date(fechaFin);
        const currentDate = new Date(inicio);
 
-       while (currentDate <= fin) {
+       while (currentDate < fin) {
          const dia = currentDate.getDay();
          const mes = currentDate.getMonth();
 
@@ -31,7 +31,7 @@ const priceData = await getPriceData();
             if (dia === 5) { // Viernes
               const nextDate = new Date(currentDate);
               nextDate.setDate(nextDate.getDate() + 1);
-              if (nextDate <= fin) { // Si el día que sigue es sábado
+              if (nextDate < fin) { // Si el día que sigue es sábado
                 precioTotal += parseFloat(priceData[mes][this.tipoPrecio][2])*2; // Sumo el precio de finde, es por día.
                 currentDate.setDate(currentDate.getDate() + 2);
                 continue;

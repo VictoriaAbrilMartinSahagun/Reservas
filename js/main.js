@@ -12,8 +12,8 @@ const hospedajes = {
     9: new Hospedaje(9, "Departamento 15", 0, 2, 3, "Departamento para 2 a 3 personas", "https://balcondelgolf.com/alojamiento/cab6a8pax/"),
     10: new Hospedaje(10, "Lodge 19", 2, 2, 3, "Lodge para 2 a 3 personas", "https://balcondelgolf.com/alojamiento/lodge2a3pax-2/"),
     11: new Hospedaje(11, "Lodge 16", 2, 2, 4, "Lodge para 2 a 4 personas", "https://balcondelgolf.com/alojamiento/lodge2a4pax/"),
-    12: new Hospedaje(12, "Lodge 17", 2, 2, 4, "Lodge para 2 a 4 personas con jacuzzi", "https://balcondelgolf.com/alojamiento/lodge2a3pax/"),
-    13: new Hospedaje(13, "Lodge 18", 2, 2, 5, "Lodge para 2 a 5 personas", "https://balcondelgolf.com/alojamiento/lodge2a5pax/")
+    12: new Hospedaje(13, "Lodge 17", 2, 2, 5, "Lodge para 2 a 5 personas", "https://balcondelgolf.com/alojamiento/lodge2a5pax/"),
+    13: new Hospedaje(12, "Lodge 18", 2, 2, 4, "Lodge para 2 a 4 personas con jacuzzi", "https://balcondelgolf.com/alojamiento/lodge2a3pax/"),
 };
 
 function calcularCargoPorPersonas(cantidadPersonas, hosp) {
@@ -43,8 +43,8 @@ window.calcularPrecios = function() {
     const checkboxFindeLargo = document.getElementById("findeLargo");
     let findeLargo = checkboxFindeLargo.checked;
 
-    if (!fechaInicio || !fechaFin) {
-        alert('Por favor seleccione una fecha');
+    if (!fechaInicio || !fechaFin){
+        alert('Por favor seleccione una fecha valida');
         return;
     }
 
