@@ -108,10 +108,8 @@
             maxDate: new Date().fp_incr(365),
             onChange: function(selectedDates) {
                 if (selectedDates.length === 2) {
-                    if (selectedDates[0].Date != selectedDates[1].Date) {
                         fechaInicio = selectedDates[0];
                         fechaFin = selectedDates[1];
-                    }
                 }
             }
         });
