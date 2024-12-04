@@ -19,7 +19,7 @@ const hospedajes = {
 function calcularCargoPorPersonas(cantidadPersonas, hosp) {
     const limite = hosp.basePersonas;
     if (cantidadPersonas > limite) {
-        return (cantidadPersonas - limite) * 5;
+        return (cantidadPersonas - limite) * 50000;
     }
     return 0;
 }
