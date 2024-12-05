@@ -55,9 +55,14 @@ window.calcularPrecios = function() {
     let textoEmail = 
     `Estimado/a:
 
-    Gracias por su interés en hospedarse en Balcón del Golf, en Sierra de la Ventana. Nos complace informarle que contamos con disponibilidad en las fechas consultadas.
-
-    A continuación, le detallo las opciones de hospedaje disponibles, junto con el precio total de la estadía y la capacidad máxima de cada cabaña:
+    Gracias por su interés en hospedarse en Balcón del Golf, en Sierra de la Ventana. Nos complace detallarle los servicios incluídos en su estadía:
+        - Desayuno buffet y cena gourmet (sin bebidas incluidas).
+        - Acceso ilimitado a nuestras instalaciones.
+        - Actividades diarias.
+        - Late check-out gratuito hasta las 20:00 hs (dejando la cabaña a las 10:00 hs).
+        - Estacionamiento.
+        
+    A continuación, le detallo las opciones de hospedaje disponibles para la fecha indicada, junto con el precio total de la estadía y la capacidad máxima de cada cabaña:
     `;
 
     cabañasSeleccionadas.forEach((element, index) => {
