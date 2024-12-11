@@ -26,25 +26,24 @@ const priceData = await getPriceData();
          const mes = currentDate.getMonth();
 
          if (findeLargo) {
-          precioTotal += parseFloat(priceData[mes][this.tipoPrecio][3]);
+          precioTotal += parseFloat(priceData[mes][this.tipoPrecio][3]) + cargoPersonas;
          }else{
             if (dia === 5) { // Viernes
               const nextDate = new Date(currentDate);
               nextDate.setDate(nextDate.getDate() + 1);
               if (nextDate < fin) { // Si el día que sigue es sábado
-                precioTotal += parseFloat(priceData[mes][this.tipoPrecio][2])*2; // Sumo el precio de finde, es por día.
+                precioTotal += (parseFloat(priceData[mes][this.tipoPrecio][2]) + cargoPersonas) *2; // Sumo el precio de finde, es por día.
                 currentDate.setDate(currentDate.getDate() + 2);
                 continue;
               }
             }
   
             if (dia === 5 || dia === 6) { // Viernes o sábado
-              precioTotal += parseFloat(priceData[mes][this.tipoPrecio][1]); // Sumo precio día.
+              precioTotal += parseFloat(priceData[mes][this.tipoPrecio][1]) + cargoPersonas; // Sumo precio día.
             } else {
-              precioTotal += parseFloat(priceData[mes][this.tipoPrecio][0]); // Sumo precio semana.
+              precioTotal += parseFloat(priceData[mes][this.tipoPrecio][0]) + cargoPersonas; // Sumo precio semana.
             }
          }
-         precioTotal += cargoPersonas;
          currentDate.setDate(currentDate.getDate() + 1);
        }
 
