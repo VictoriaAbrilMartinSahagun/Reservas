@@ -15,7 +15,7 @@ const priceData = await getPriceData();
        this.link = link;
      }
 
-     calcularPrecioEstadia(fechaInicio, fechaFin, findeLargo) {
+     calcularPrecioEstadia(fechaInicio, fechaFin, findeLargo, cargoPersonas) {
        let precioTotal = 0;
        const inicio = new Date(fechaInicio);
        const fin = new Date(fechaFin);
@@ -44,7 +44,7 @@ const priceData = await getPriceData();
               precioTotal += parseFloat(priceData[mes][this.tipoPrecio][0]); // Sumo precio semana.
             }
          }
-
+         precioTotal += cargoPersonas;
          currentDate.setDate(currentDate.getDate() + 1);
        }
 

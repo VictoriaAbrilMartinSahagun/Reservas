@@ -72,9 +72,8 @@ window.calcularPrecios = function() {
         if(cantidadPersonas > hosp.maxPersonas){
             alert('El hospedaje: '+hosp.nombre+' no es apto para '+cantidadPersonas+ ' personas.');
         } else {
-            const precioBase = hosp.calcularPrecioEstadia(fechaInicio, fechaFin, findeLargo);
             const cargoPersonas = calcularCargoPorPersonas(cantidadPersonas, hosp);
-            const precioTotal = precioBase + cargoPersonas;
+            const precioTotal = hosp.calcularPrecioEstadia(fechaInicio, fechaFin, findeLargo, cargoPersonas);
 
             // HTML para mostrar
             resultadosHTML += `
