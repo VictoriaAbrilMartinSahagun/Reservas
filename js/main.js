@@ -16,9 +16,12 @@ const hospedajes = {
     13: new Hospedaje(12, "Lodge 18", 2, 2, 4, "Lodge para 2 a 4 personas con jacuzzi", "https://balcondelgolf.com/alojamiento/lodge2a3pax/"),
 };
 
-function calcularCargoPorPersonas(cantidadPersonas, hosp) {
+function calcularCargoPorPersonas(cantidadPersonas, hosp, findeLargo) {
     const limite = hosp.basePersonas;
-    if (cantidadPersonas > limite) {
+    if (cantidadPersonas>limite) {
+        if (findeLargo){
+            return (cantidadPersonas - limite) * 50000;            
+        }
         return (cantidadPersonas - limite) * 45000;
     }
     return 0;
@@ -43,7 +46,7 @@ window.calcularPrecios = function() {
     const checkboxFindeLargo = document.getElementById("findeLargo");
     let findeLargo = checkboxFindeLargo.checked;
 
-    if (!fechaInicio || !fechaFin){
+    if (!fechaInicio || !fechaFin || fechaFin==fechaInicio){
         alert('Por favor seleccione una fecha valida');
         return;
     }
@@ -72,7 +75,7 @@ window.calcularPrecios = function() {
         if(cantidadPersonas > hosp.maxPersonas){
             alert('El hospedaje: '+hosp.nombre+' no es apto para '+cantidadPersonas+ ' personas.');
         } else {
-            const cargoPersonas = calcularCargoPorPersonas(cantidadPersonas, hosp);
+            const cargoPersonas = calcularCargoPorPersonas(cantidadPersonas, hosp, findeLargo);
             const precioTotal = hosp.calcularPrecioEstadia(fechaInicio, fechaFin, findeLargo, cargoPersonas);
 
             // HTML para mostrar
