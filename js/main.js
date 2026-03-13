@@ -59,7 +59,8 @@ window.calcularPrecios = function() {
     `Estimado/a:
 
     Gracias por su interés en hospedarse en Balcón del Golf, en Sierra de la Ventana. Nos complace detallarle los servicios incluídos en su estadía:
-        - Desayuno buffet y cena gourmet (sin bebidas incluidas).
+        - Desayuno buffet todos los días.
+        - Cena gourmet los días viernes y sábados (sin bebidas incluidas).
         - Acceso ilimitado a nuestras instalaciones.
         - Actividades diarias.
         - Late check-out gratuito hasta las 20:00 hs (dejando la cabaña a las 10:00 hs).
@@ -97,13 +98,18 @@ window.calcularPrecios = function() {
     });
 
     const mensajeFinal = `
-    Precios en efectivo, consultar precio de lista con plan cuota simple (6 pagos sin recargo).
+    Precios en efectivo, reserva mediante transferencia con el 40% de la seña y el saldo restante se abona en efectivo al ingersar.
+    
+    A continuación se encuentran los links con el detalle completo de gastronomía, servicios y actividades que ofrece nuestro complejo:
+    - Complejo y servicios: https://drive.google.com/file/d/1HpdlV9mLyBH_H6iS60KS8ixaGXp7IQQW/view
+    - Gastronomía: https://drive.google.com/file/d/15WWd0flJpecannQIDLRNdSRmxKaenxQU/view
+
     Si desea proceder con la reserva o necesita más información, no dude en ponerse en contacto con nosotros.
     Estaremos encantados de asistirlo para asegurar una estancia placentera en nuestro complejo.`;
 
     // HTML para mostrar
     resultadosHTML += `
-        <p>Precios en efectivo, consultar precio de lista con plan cuota simple (6 pagos sin recargo).</p>
+        <p>Precios en efectivo, reserva mediante transferencia con el 40% de la seña y el saldo restante se abona en efectivo al ingersar.</p>
         </div>
         <div class="button-container">
             <button id="copyHTMLButton" class="copy-button" onclick="copiarHTML()">
