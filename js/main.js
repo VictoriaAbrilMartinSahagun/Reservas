@@ -98,7 +98,7 @@ window.calcularPrecios = function() {
     });
 
     const mensajeFinal = `
-    Precios en efectivo, reserva mediante transferencia con el 40% de la seña y el saldo restante se abona en efectivo al ingersar.
+    Precios en efectivo, reserva mediante transferencia con el 40% de la seña y el saldo restante se abona en efectivo al ingresar.
     
     A continuación se encuentran los links con el detalle completo de gastronomía, servicios y actividades que ofrece nuestro complejo:
     - Complejo y servicios: https://drive.google.com/file/d/1HpdlV9mLyBH_H6iS60KS8ixaGXp7IQQW/view
@@ -109,7 +109,7 @@ window.calcularPrecios = function() {
 
     // HTML para mostrar
     resultadosHTML += `
-        <p>Precios en efectivo, reserva mediante transferencia con el 40% de la seña y el saldo restante se abona en efectivo al ingersar.</p>
+        <p>Precios en efectivo, reserva mediante transferencia con el 40% de la seña y el saldo restante se abona en efectivo al ingresar.</p>
         </div>
         <div class="button-container">
             <button id="copyHTMLButton" class="copy-button" onclick="copiarHTML()">
